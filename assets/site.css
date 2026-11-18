@@ -57,6 +57,9 @@ p { margin: 0 0 1em; }
 .btn svg { width: 20px; height: 20px; fill: currentColor; }
 .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--raised); }
 .btn-ghost:hover { background: var(--surface); color: var(--text); }
+/* Apple's official badge (unchanged artwork, min. 40px high, clear space around it; D-133 update 3) */
+.store-badge { display: inline-block; padding: 4px 12px 4px 0; line-height: 0; }
+.store-badge img { height: 48px; width: auto; }
 .cta-row { display: flex; gap: .8rem; flex-wrap: wrap; align-items: center; }
 
 /* Hero */
