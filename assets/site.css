@@ -1,0 +1,123 @@
+/* Polyp website styles (T-12.2, D-133). Colours match the app's design tokens (DESIGN.md, D-097/D-114). */
+:root {
+  --bg: #101722;
+  --bg-top: #16233A;
+  --surface: #192333;
+  --raised: #2E3E55;
+  --text: #F3F5F8;
+  --text-2: #9BA9BA;
+  --accent: #76A9DC;
+  --on-accent: #0E1622;
+  --separator: #263447;
+  --coral: #EE6680;
+  --r-s: 8px; --r-m: 16px; --r-l: 24px; --r-card: 38px;
+  --font: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  --wrap: 68rem;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; font-family: var(--font); font-size: 1.0625rem; line-height: 1.6;
+  color: var(--text); background: var(--bg);
+  background-image: linear-gradient(180deg, var(--bg-top) 0, var(--bg) 40rem);
+  background-repeat: no-repeat;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: #9cc3ea; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 .6em; }
+h1 { font-size: clamp(2.1rem, 6vw, 3.6rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); }
+h3 { font-size: 1.25rem; }
+p { margin: 0 0 1em; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1rem; }
+.narrow { max-width: 42rem; }
+.muted { color: var(--text-2); }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--surface); padding: .5rem 1rem; z-index: 10; }
+
+/* Header */
+.site-header { padding: 1rem 0; }
+.site-header .wrap { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: .6rem; color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.25rem; }
+.brand img { width: 36px; height: 36px; border-radius: 9px; }
+.nav { margin-left: auto; display: flex; gap: 1.1rem; flex-wrap: wrap; align-items: center; }
+.nav a { color: var(--text-2); text-decoration: none; font-weight: 600; font-size: .98rem; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--text); }
+.nav .lang { border: 1px solid var(--separator); border-radius: 999px; padding: .15rem .65rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: .55rem; min-height: 48px; padding: .7rem 1.4rem;
+  border-radius: 999px; font-weight: 700; text-decoration: none; background: var(--accent); color: var(--on-accent);
+}
+.btn:hover { background: #8fbbe6; color: var(--on-accent); }
+.btn svg { width: 20px; height: 20px; fill: currentColor; }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--raised); }
+.btn-ghost:hover { background: var(--surface); color: var(--text); }
+.cta-row { display: flex; gap: .8rem; flex-wrap: wrap; align-items: center; }
+
+/* Hero */
+.hero { padding: 2.5rem 0 3.5rem; }
+.hero .wrap { display: grid; gap: 2.5rem; align-items: center; grid-template-columns: 1.05fr 1fr; }
+.eyebrow { color: var(--coral); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; margin-bottom: .8rem; }
+.lead { font-size: clamp(1.1rem, 2.4vw, 1.3rem); color: var(--text-2); max-width: 34rem; }
+.small { font-size: .92rem; }
+.phones { display: flex; justify-content: center; gap: 1rem; }
+.phone {
+  border-radius: 34px; overflow: hidden; border: 6px solid #232f42; background: #000;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); width: 46%; max-width: 250px;
+}
+.phones .phone:nth-child(2) { transform: translateY(2.2rem); }
+
+/* Features */
+.section { padding: 3.5rem 0; }
+.section-head { max-width: 40rem; margin-bottom: 2rem; }
+.feature { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; padding: 2.5rem 0; border-top: 1px solid var(--separator); }
+.feature:nth-of-type(even) .feature-media { order: -1; }
+.feature-media { display: flex; justify-content: center; }
+.feature-media .phone { width: 60%; max-width: 270px; }
+.feature ul { padding-left: 1.2rem; color: var(--text-2); }
+.feature li { margin-bottom: .3rem; }
+.tag { display: inline-block; font-size: .8rem; font-weight: 700; padding: .15rem .6rem; border-radius: 999px; background: rgba(238,102,128,.15); color: #ff97ab; margin-bottom: .6rem; }
+
+.card { background: var(--surface); border: 1px solid var(--separator); border-radius: var(--r-l); padding: 1.6rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.price { font-size: 1.6rem; font-weight: 800; margin: .2rem 0 .6rem; }
+.price small { font-size: .95rem; font-weight: 600; color: var(--text-2); }
+.card ul { margin: 0; padding-left: 1.1rem; color: var(--text-2); }
+.card.highlight { border-color: var(--accent); }
+
+.promise { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+.promise .card h3 { margin-bottom: .3rem; }
+
+.maker { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center; }
+.maker img { width: 96px; height: 96px; border-radius: 22px; }
+
+/* Text pages (support, privacy, press, blog) */
+.page { padding: 2rem 0 4rem; }
+.page h2 { margin-top: 2.2rem; font-size: 1.45rem; }
+.page .card { margin: 1rem 0; }
+.faq dt { font-weight: 700; margin-top: 1.2rem; }
+.faq dd { margin: .3rem 0 0; color: var(--text-2); }
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.shots a { border-radius: var(--r-m); overflow: hidden; border: 1px solid var(--separator); }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--separator); padding: 2rem 0 3rem; color: var(--text-2); font-size: .92rem; }
+.site-footer .wrap { display: flex; gap: 1rem 2rem; flex-wrap: wrap; justify-content: space-between; }
+.site-footer nav { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.site-footer a { color: var(--text-2); }
+
+@media (max-width: 760px) {
+  .hero .wrap, .feature { grid-template-columns: 1fr; }
+  .feature:nth-of-type(even) .feature-media { order: 0; }
+  .feature-media .phone { width: 62%; }
+  .grid-3, .promise { grid-template-columns: 1fr; }
+  .shots { grid-template-columns: repeat(2, 1fr); }
+  .nav { margin-left: 0; width: 100%; gap: .9rem; }
+  .hero { padding-top: 1rem; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
