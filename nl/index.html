@@ -151,6 +151,7 @@
             <img class="compare-after" src="/img/photos/ba-after.jpg" width="675" height="900" loading="lazy" alt="Dezelfde foto na één tik op Auto, met warmere, natuurlijkere kleuren.">
             <span class="compare-label compare-before-label" aria-hidden="true">Voor</span>
             <span class="compare-label compare-after-label" aria-hidden="true">Auto</span>
+            <span class="compare-handle" aria-hidden="true"></span>
             <input type="range" min="0" max="100" value="50" aria-label="Schuif om de foto voor en na Auto te vergelijken">
           </figure>
         </div>
@@ -240,9 +241,29 @@
   </div>
 </footer>
 <script>
-// Before/after slider: moves the dividing line (T-12.2). Without JavaScript the photo shows half before, half after.
-document.querySelectorAll('.compare input').forEach(function (r) {
-  r.addEventListener('input', function () { r.parentNode.style.setProperty('--pos', r.value + '%'); });
+// Before/after slider (T-12.2). Drag anywhere on the photo with a finger or mouse; the hidden range input keeps it
+// working with the keyboard and VoiceOver. Without JavaScript the photo shows half before, half after.
+document.querySelectorAll('.compare').forEach(function (fig) {
+  var range = fig.querySelector('input');
+  var dragging = false;
+  function set(value) {
+    value = Math.max(0, Math.min(100, value));
+    range.value = value;
+    fig.style.setProperty('--pos', value + '%');
+  }
+  function follow(event) {
+    var box = fig.getBoundingClientRect();
+    set((event.clientX - box.left) / box.width * 100);
+  }
+  range.addEventListener('input', function () { set(Number(range.value)); });
+  fig.addEventListener('pointerdown', function (event) {
+    dragging = true;
+    fig.setPointerCapture(event.pointerId);
+    follow(event);
+  });
+  fig.addEventListener('pointermove', function (event) { if (dragging) follow(event); });
+  fig.addEventListener('pointerup', function () { dragging = false; });
+  fig.addEventListener('pointercancel', function () { dragging = false; });
 });
 </script>
 </body>
