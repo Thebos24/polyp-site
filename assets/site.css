@@ -176,3 +176,19 @@ p { margin: 0 0 1em; }
   .tl-strip { grid-template-columns: repeat(2, 1fr); }
   .mosaic { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Blog posts (T-12.7) */
+.post h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.15; }
+.post .byline { color: var(--text-2); font-size: .95rem; margin: .4rem 0 1.6rem; }
+.post p, .post li { line-height: 1.7; }
+.post h2 { margin-top: 2.2rem; }
+.post figure { margin: 1.6rem 0; }
+.post figure img { width: 100%; height: auto; border-radius: var(--r-l); display: block; }
+.post figcaption { color: var(--text-2); font-size: .9rem; margin-top: .5rem; }
+.post .pair { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.post .pair figure { margin: 0; }
+.post .sources { font-size: .9rem; color: var(--text-2); }
+.post .sources li { line-height: 1.5; margin-bottom: .3rem; }
+.post-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+.post-list li { margin-bottom: 1rem; }
+.post-list a { font-weight: 700; font-size: 1.15rem; }
